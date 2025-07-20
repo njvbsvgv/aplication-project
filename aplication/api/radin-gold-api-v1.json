@@ -1,0 +1,226 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Radin Gold API V1",
+    "description": "Modern API for managing Radin Gold.\r\nSupports JSON and XML responses.",
+    "contact": {
+      "name": "API Support",
+      "url": "https://api.example.com/support",
+      "email": ""
+    },
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.radingold.top/"
+    }
+  ],
+  "paths": {
+    "/Account/RegisterRequest": {
+      "post": {
+        "tags": [
+          "Project.API"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequestCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Account/ConfirmRegisterRequest": {
+      "post": {
+        "tags": [
+          "Project.API"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmRegisterRequestCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Account/LoginRequest": {
+      "post": {
+        "tags": [
+          "Project.API"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Account/ConfirmLoginRequest": {
+      "post": {
+        "tags": [
+          "Project.API"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmLoginRequestCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Account/AccountResetRequest": {
+      "post": {
+        "tags": [
+          "Project.API"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountResetRequestCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccountResetRequestCommand": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ConfirmLoginRequestCommand": {
+        "required": [
+          "token",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ConfirmRegisterRequestCommand": {
+        "required": [
+          "token",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LoginRequestCommand": {
+        "required": [
+          "mobile"
+        ],
+        "type": "object",
+        "properties": {
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "RegisterRequestCommand": {
+        "required": [
+          "nationalcode",
+          "mobile"
+        ],
+        "type": "object",
+        "properties": {
+          "nationalcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "Json Web Token"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Project.API"
+    }
+  ]
+}
