@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@font-face {  
+    font-family: bYekan;
+    font-style: normal;
+    font-weight: 200 700;
+    font-display: swap;
+    src: url("./assets/fonts/BYekan/BYekan+.ttf") format("woff2");
+}
+
+@font-face {  
+    font-family: bYekanBold;
+    font-style: normal;
+    font-weight: 200 700;
+    font-display: swap;
+    src: url("./assets/fonts/BYekan/BYekan+Bold.ttf") format("woff2");
+}
