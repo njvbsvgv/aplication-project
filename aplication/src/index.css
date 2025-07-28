@@ -15,3 +15,8 @@
     font-display: swap;
     src: url("./assets/fonts/BYekan/BYekan+Bold.ttf") format("woff2");
 }
+
+@theme {
+    --breakpoint-881View:881px;
+    --breakpoint-393View:394px;
+}
