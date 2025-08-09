@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import RegisterSlider from "../../../partials/RegisterSlider";
+import StepNavigation from "./StepNavigation";
+import { useSelector } from "react-redux";
 
 const Register = () => {
+  const { steper } = useSelector((state) => state.registerDataSlice);
   return (
-    <div className="register-container h-[730px] flex justify-center items-center border border-amber-600">
-      <div className="cards-control flex w-[50vw]">
-        <div className="right w-[40vw] border flex items-start">
-          <Outlet />
+    <div className="register-container h-[730px] flex justify-center items-center">
+      <div className="cards-control min-881View:w-[80vw] max-881View:w-[90vw] flex justify-between shadow-2xl rounded-2xl p-4
+        ">
+        <div className="right w-[48%] max-881View:w-full flex flex-col items-start">
+          <StepNavigation activeStep={steper} />
+          <div className="mt-8 w-full">
+            <Outlet />
+          </div>
         </div>
-        <div className="left border w-[40vw] flex justify-center items-center">
-          <RegisterSlider />
+        <div className="left w-[48%] flex justify-center items-center max-881View:hidden">
+          <RegisterSlider bgColor={"#0090FF"}/>
         </div>
       </div>
     </div>
