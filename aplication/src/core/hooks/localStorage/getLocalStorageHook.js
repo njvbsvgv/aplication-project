@@ -1,9 +1,15 @@
-export const getLocalStorageHook = (itemKey, isStringify) => {
-  let item;
-  if (isStringify) {
-    item = JSON.parse(localStorage.getItem(itemKey));
-  }else {
-    item = localStorage.getItem(itemKey);
+export const getLocalStorageHook = (key, parse = false) => {
+  const value = localStorage.getItem(key);
+  if (!value) {
+    return null; 
   }
-  return item
+  if (parse) {
+    try {
+      return JSON.parse(value);
+    } catch (error) {
+      console.error(`Error parsing localStorage key "${key}":`, error);
+      return value;
+    }
+  }
+  return value;
 };
